@@ -1,6 +1,7 @@
 package io.github.mfaisalkhatri.tests;
 
 import static io.github.mfaisalkhatri.drivers.DriverManager.getDriver;
+import static io.github.mfaisalkhatri.utilities.Helper.takeScreenShot;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
@@ -19,9 +20,10 @@ public class PcloudyWebsiteTests extends BaseTest {
     }
 
     @Test
-    public void testChecktitle () {
+    public void testPrintTitle () {
         String title = getDriver ().findElement (By.tagName ("h1"))
             .getText ();
+        takeScreenShot();
         System.out.println (title);
     }
 }

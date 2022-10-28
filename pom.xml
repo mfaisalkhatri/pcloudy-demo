@@ -16,11 +16,13 @@
         <testng.version>7.6.1</testng.version>
         <log4jcore.version>2.19.0</log4jcore.version>
         <log4japi.version>2.19.0</log4japi.version>
+        <commons.io.version>2.11.0</commons.io.version>
         <maven.compiler.version>3.10.1</maven.compiler.version>
         <surefire-version>3.0.0-M7</surefire-version>
         <java.release.version>11</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
         <suite-xml>test-suite/testng.xml</suite-xml>
+        <argLine>-Dfile.encoding=UTF-8 -Xdebug -Xnoagent</argLine>
     </properties>
 
     <dependencies>
@@ -50,6 +52,13 @@
             <artifactId>log4j-api</artifactId>
             <version>${log4japi.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -79,6 +88,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite-xml}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>${argLine}</argLine>
                 </configuration>
             </plugin>
         </plugins>

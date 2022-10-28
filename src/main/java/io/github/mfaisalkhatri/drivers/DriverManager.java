@@ -1,55 +1,60 @@
 package io.github.mfaisalkhatri.drivers;
 
-import static java.text.MessageFormat.format;
-
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import java.time.Duration;
 
-import org.apache.commons.exec.OS;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.AbstractDriverOptions;
+import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 /**
  * @author Faisal Khatri
  * @since 10/27/2022
  **/
 public class DriverManager {
+
     private static final ThreadLocal<WebDriver> DRIVER           = new ThreadLocal<> ();
     private static final Logger                 LOG              = LogManager.getLogger ("DriverManager.class");
     private static final String                 GRID_URL         = "https://prod-browsercloud-in.pcloudy.com/seleniumcloud/wd/hub";
     private static final String                 PCLOUDY_USERNAME = System.getProperty ("username");
     private static final String                 PCLOUDY_APIKEY   = System.getProperty ("apikey");
 
-    public static void createDriver (final String OS, final String browserName, final String browserVersion) {
+    public static void createDriver (final String os, String osVersion, final String browserName,
+        final String browserVersion) {
+
+        Capabilities options;
 
         if (browserName.equalsIgnoreCase ("chrome")) {
-            setupChromeBrowser (OS, browserVersion);
+            options = getChromeOptions (os, osVersion, browserVersion);
         } else if (browserName.equalsIgnoreCase ("firefox")) {
-            setupFirefoxBrowser (OS, browserVersion);
-        } else if (browserName.equalsIgnoreCase ("edge")) {
-            setupEdgeBrowser (OS, browserVersion);
+            options = getFirefoxOptions (os, osVersion, browserVersion);
+        } else if (browserName.equalsIgnoreCase ("safari")) {
+            options = getSafariOptions (os, osVersion, browserVersion);
         } else {
-            LOG.error ("Browser name/version is not specified correctly!!");
+            throw new Error ("Browser name/version is not specified correctly!!");
         }
 
         try {
-            setDriver (new RemoteWebDriver (new URL (format ("https://{0}", GRID_URL)), capabilities ()));
+            setDriver (new RemoteWebDriver (new URL (GRID_URL), options));
         } catch (final MalformedURLException e) {
-            LOG.error ("Error setting up browser in pCloudy", e);
+            LOG.error ("Error setting up chrome browser in pCloudy", e);
         }
 
         setupBrowserTimeouts ();
     }
 
+    @SuppressWarnings ("unchecked")
     public static <D extends WebDriver> D getDriver () {
-        return (D) DriverManager.DRIVER.get ();
+        return (D) DRIVER.get ();
     }
 
     public static void quitDriver () {
@@ -77,35 +82,42 @@ public class DriverManager {
             .scriptTimeout (Duration.ofSeconds (30));
     }
 
-    private static ChromeOptions setupChromeBrowser (String OS, String browserVersion) {
-        final ChromeOptions chromeOptions = new ChromeOptions ();
-        chromeOptions.setPlatformName (OS);
-        chromeOptions.setBrowserVersion (browserVersion);
-        return chromeOptions;
-    }
-
-    private static FirefoxOptions setupFirefoxBrowser (String OS, String browserVersion) {
-        FirefoxOptions firefoxOptions = new FirefoxOptions ();
-        firefoxOptions.setPlatformName (OS);
-        firefoxOptions.setBrowserVersion (browserVersion);
+    private static Capabilities getFirefoxOptions (final String os, final String osVersion,
+        final String browserVersion) {
+        final FirefoxOptions firefoxOptions = new FirefoxOptions ();
+        firefoxOptions.setCapability ("os", os);
+        firefoxOptions.setCapability ("osVersion", osVersion);
+        firefoxOptions.setCapability ("browserName", "firefox");
+        firefoxOptions.setCapability ("browserVersion", browserVersion);
+        firefoxOptions.setCapability ("clientName", PCLOUDY_USERNAME);
+        firefoxOptions.setCapability ("apiKey", PCLOUDY_APIKEY);
+        firefoxOptions.setCapability ("email", PCLOUDY_USERNAME);
         return firefoxOptions;
     }
 
-    private static EdgeOptions setupEdgeBrowser (String OS, String browserVersion) {
-        EdgeOptions edgeOptions = new EdgeOptions ();
-        edgeOptions.setPlatformName (OS);
-        edgeOptions.setBrowserVersion (browserVersion);
-        return edgeOptions;
+    private static Capabilities getSafariOptions (final String os, final String osVersion,
+        final String browserVersion) {
+        final SafariOptions safariOptions = new SafariOptions ();
+        safariOptions.setCapability ("os", os);
+        safariOptions.setCapability ("osVersion", osVersion);
+        safariOptions.setCapability ("browserName", "safari");
+        safariOptions.setCapability ("browserVersion", browserVersion);
+        safariOptions.setCapability ("clientName", PCLOUDY_USERNAME);
+        safariOptions.setCapability ("apiKey", PCLOUDY_APIKEY);
+        safariOptions.setCapability ("email", PCLOUDY_USERNAME);
+        return safariOptions;
     }
 
-    private static DesiredCapabilities capabilities () {
-        capabilities ().setCapability ("pCloudy_Username", PCLOUDY_USERNAME);
-        capabilities ().setCapability ("pCloudy_ApiKey", PCLOUDY_APIKEY);
-        capabilities ().setCapability ("pCloudy_WildNet", "false");
-        capabilities ().setCapability ("pCloudy_EnableVideo", "true");
-        capabilities ().setCapability ("pCloudy_EnablePerformanceData", "true");
-        capabilities ().setCapability ("pCloudy_EnableDeviceLogs", "true");
-        return capabilities ();
+    private static Capabilities getChromeOptions (String os, String osVersion, String browserVersion) {
+        final ChromeOptions chromeOptions = new ChromeOptions ();
+        chromeOptions.setCapability ("os", os);
+        chromeOptions.setCapability ("osVersion", osVersion);
+        chromeOptions.setCapability ("browserName", "chrome");
+        chromeOptions.setCapability ("browserVersion", browserVersion);
+        chromeOptions.setCapability ("clientName", PCLOUDY_USERNAME);
+        chromeOptions.setCapability ("apiKey", PCLOUDY_APIKEY);
+        chromeOptions.setCapability ("email", PCLOUDY_USERNAME);
+        return chromeOptions;
     }
 
     private DriverManager () {
