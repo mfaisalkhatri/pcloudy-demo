@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="pCloudy Website tests" parallel="tests" thread-count="3" >
+    <test name="pCloudy Website tests on chrome browser version 89" enabled="true">
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="10"/>
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="89"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
+                <methods>
+                    <include name="testPrintTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="pCloudy Website tests on chrome browser version 99" enabled="false">
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="10"/>
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="99"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
+                <methods>
+                    <include name="testPrintTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="pCloudy Website tests on chrome browser version 102" enabled="false">
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="10"/>
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="102"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
+                <methods>
+                    <include name="testPrintTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="pCloudy Website tests on firefox browser version 103" enabled="true">
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="10"/>
+        <parameter name="browserName" value="firefox"/>
+        <parameter name="browserVersion" value="105"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
+                <methods>
+                    <include name="testPrintTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="pCloudy Website tests on safari browser version 15" enabled="true">
+        <parameter name="os" value="Mac"/>
+        <parameter name="osVersion" value="Monterey"/>
+        <parameter name="browserName" value="safari"/>
+        <parameter name="browserVersion" value="15"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
+                <methods>
+                    <include name="testPrintTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
+
