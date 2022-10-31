@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="pCloudy Website tests" parallel="tests" thread-count="3" >
-    <test name="pCloudy Website tests on chrome browser version 89" enabled="false">
+    <test name="pCloudy Website tests on chrome browser version 89" enabled="true">
         <parameter name="os" value="Windows"/>
         <parameter name="osVersion" value="10"/>
         <parameter name="browserName" value="chrome"/>
@@ -27,7 +27,7 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="pCloudy Website tests on chrome browser version 102" enabled="true">
+    <test name="pCloudy Website tests on chrome browser version 102" enabled="false">
         <parameter name="os" value="Windows"/>
         <parameter name="osVersion" value="10"/>
         <parameter name="browserName" value="chrome"/>
@@ -40,7 +40,7 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="pCloudy Website tests on firefox browser version 103" enabled="false">
+    <test name="pCloudy Website tests on firefox browser version 103" enabled="true">
         <parameter name="os" value="Windows"/>
         <parameter name="osVersion" value="10"/>
         <parameter name="browserName" value="firefox"/>
@@ -53,7 +53,7 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="pCloudy Website tests on safari browser version 15" enabled="false">
+    <test name="pCloudy Website tests on safari browser version 15" enabled="true">
         <parameter name="os" value="Mac"/>
         <parameter name="osVersion" value="Monterey"/>
         <parameter name="browserName" value="safari"/>

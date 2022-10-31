@@ -3,6 +3,7 @@ package io.github.mfaisalkhatri.tests;
 import static io.github.mfaisalkhatri.drivers.DriverManager.getDriver;
 import static io.github.mfaisalkhatri.utilities.Helper.takeScreenShot;
 
+import io.github.mfaisalkhatri.pages.HomePage;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,9 +22,8 @@ public class PcloudyWebsiteTests extends BaseTest {
 
     @Test
     public void testPrintTitle () {
-        String title = getDriver ().findElement (By.tagName ("h1"))
-            .getText ();
-        takeScreenShot();
-        System.out.println (title);
+        HomePage homePage = new HomePage ();
+        takeScreenShot ();
+        System.out.println (homePage.getMainTitle ());
     }
 }
