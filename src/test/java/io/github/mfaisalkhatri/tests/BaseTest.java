@@ -1,9 +1,9 @@
 package io.github.mfaisalkhatri.tests;
 
-import static io.github.mfaisalkhatri.drivers.DriverManager.createDriver;
 import static io.github.mfaisalkhatri.drivers.DriverManager.quitDriver;
+import static io.github.mfaisalkhatri.drivers.DriverManager.startDriver;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -14,11 +14,11 @@ import org.testng.annotations.Parameters;
  **/
 public class BaseTest {
 
-    @Parameters ({"os","osVersion","browserName","browserVersion"})
-    @BeforeClass (alwaysRun = true)
-    public void setupTest (final String os, final String osVersion, final String browserName, final String browserVersion) {
-        createDriver (os, osVersion, browserName, browserVersion);
-    }
+     @Parameters ({"id"})
+        @BeforeClass (alwaysRun = true)
+        public void setupTest (final String id) {
+            startDriver(id);
+        }
 
     @AfterClass (alwaysRun = true)
     public void tearDown () {
