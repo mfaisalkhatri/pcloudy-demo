@@ -21,6 +21,7 @@
         <surefire-version>3.0.0-M7</surefire-version>
         <java.release.version>11</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
+        <jackson-databind-version>2.13.3</jackson-databind-version>
         <suite-xml>test-suite/testng.xml</suite-xml>
         <argLine>-Dfile.encoding=UTF-8 -Xdebug -Xnoagent</argLine>
     </properties>
@@ -58,7 +59,12 @@
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind-version}</version>
+        </dependency>
     </dependencies>
 
     <build>
