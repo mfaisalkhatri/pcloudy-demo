@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="pCloudy Website tests" parallel="tests" thread-count="3">
+<suite name="pCloudy Website tests" parallel="tests" thread-count="2">
     <test name="pCloudy Website tests on chrome browser version 102">
         <parameter name="id" value="1"/>
         <classes>
             <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
                 <methods>
-                    <include name="testPrintTitle"/>
-                </methods>
-            </class>
-        </classes>
-    </test> <!-- Test -->
-    <test name="pCloudy Website tests on chrome browser version 99">
-        <parameter name="id" value="2"/>
-        <classes>
-            <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
-                <methods>
-                    <include name="testPrintTitle"/>
+                    <include name="testHomePageText"/>
+                    <include name="testBlogPageText"/>
                 </methods>
             </class>
         </classes>
     </test> <!-- Test -->
     <test name="pCloudy Website tests on firefox browser version 105">
-        <parameter name="id" value="3"/>
+        <parameter name="id" value="2"/>
         <classes>
             <class name="io.github.mfaisalkhatri.tests.PcloudyWebsiteTests">
                 <methods>
-                    <include name="testPrintTitle"/>
+                    <include name="testHomePageText"/>
+                    <include name="testBlogPageText"/>
                 </methods>
             </class>
         </classes>

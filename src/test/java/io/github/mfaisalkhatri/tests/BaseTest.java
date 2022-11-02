@@ -3,7 +3,6 @@ package io.github.mfaisalkhatri.tests;
 import static io.github.mfaisalkhatri.drivers.DriverManager.quitDriver;
 import static io.github.mfaisalkhatri.drivers.DriverManager.startDriver;
 
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -14,11 +13,11 @@ import org.testng.annotations.Parameters;
  **/
 public class BaseTest {
 
-     @Parameters ({"id"})
-        @BeforeClass (alwaysRun = true)
-        public void setupTest (final String id) {
-            startDriver(id);
-        }
+    @Parameters ({ "id" })
+    @BeforeClass (alwaysRun = true)
+    public void setupTest (final String id) {
+        startDriver (id);
+    }
 
     @AfterClass (alwaysRun = true)
     public void tearDown () {
