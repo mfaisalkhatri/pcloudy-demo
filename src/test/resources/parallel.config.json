@@ -11,14 +11,6 @@
     "id": "2",
     "osName": "Windows",
     "osVersion": "10",
-    "browserName": "chrome",
-    "browserVersion": "99"
-  },
-
-  {
-    "id": "3",
-    "osName": "Windows",
-    "osVersion": "10",
     "browserName": "firefox",
     "browserVersion": "105"
   }

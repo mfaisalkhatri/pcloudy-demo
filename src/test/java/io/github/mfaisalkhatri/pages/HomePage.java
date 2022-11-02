@@ -22,7 +22,7 @@ public class HomePage {
     }
 
     public String getTopText () {
-        return getDriver ().findElement (By.tagName ("div.info.text-center > h1"))
+        return getDriver ().findElement (By.cssSelector ("div.info.text-center > h1"))
             .getText ();
     }
 
@@ -35,18 +35,18 @@ public class HomePage {
         return getDriver ().findElement (By.linkText ("Resources"));
     }
 
-    private WebElement documentationLink () {
-        return getDriver ().findElement (By.linkText ("Documentation"));
+    private WebElement blogsLink () {
+        return getDriver ().findElement (By.linkText ("Blog"));
 
     }
 
-    public DocumentationPage openDocumentationPage () {
+    public BlogsPage openBlogsPage () {
         Actions actions = new Actions (getDriver ());
         actions.moveToElement (resourcesMenu ())
-            .pause (1000)
-            .click (documentationLink ())
+            .click ()
             .build ()
             .perform ();
-        return  new DocumentationPage ();
+        blogsLink ().click ();
+        return new BlogsPage ();
     }
 }

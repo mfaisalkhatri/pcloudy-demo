@@ -4,9 +4,8 @@ import static io.github.mfaisalkhatri.drivers.DriverManager.getDriver;
 import static io.github.mfaisalkhatri.utilities.Helper.takeScreenShot;
 import static org.testng.Assert.assertEquals;
 
-import io.github.mfaisalkhatri.pages.DocumentationPage;
+import io.github.mfaisalkhatri.pages.BlogsPage;
 import io.github.mfaisalkhatri.pages.HomePage;
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -32,8 +31,9 @@ public class PcloudyWebsiteTests extends BaseTest {
     }
 
     @Test
-    public void testDocumentationPageText () {
-        DocumentationPage documentationPage = homePage.openDocumentationPage ();
-        assertEquals (documentationPage.getWebTestingPageTitle (), "Opening Web URL");
+    public void testBlogPageText () {
+        BlogsPage blogsPage = homePage.openBlogsPage ();
+        takeScreenShot ();
+        assertEquals (blogsPage.getPageTitle (), "pCloudy Blogs");
     }
 }
