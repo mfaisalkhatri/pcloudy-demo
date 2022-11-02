@@ -43,6 +43,7 @@ public class HomePage {
     public BlogsPage openBlogsPage () {
         Actions actions = new Actions (getDriver ());
         actions.moveToElement (resourcesMenu ())
+            .pause (1000)
             .click ()
             .build ()
             .perform ();

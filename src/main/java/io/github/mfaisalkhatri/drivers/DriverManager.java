@@ -17,7 +17,6 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-
 /**
  * @author Faisal Khatri
  * @since 10/27/2022
@@ -60,6 +59,12 @@ public class DriverManager {
             .scriptTimeout (Duration.ofSeconds (30));
     }
 
+    private static void maximizeBrowserWindow () {
+        getDriver ().manage ()
+            .window ()
+            .maximize ();
+    }
+
     public static void startDriver (final String id) {
 
         MutableCapabilities capabilities = new MutableCapabilities ();
@@ -78,18 +83,16 @@ public class DriverManager {
                     .asText ()
                     .equals (id)) {
                     configParam.fields ()
-                        .forEachRemaining (capability -> {
-                            capabilities.setCapability (capability.getKey (), capability.getValue ()
-                                .asText ());
-                        });
+                        .forEachRemaining (capability -> capabilities.setCapability (capability.getKey (),
+                            capability.getValue ()
+                                .asText ()));
                 }
             });
             capabilities.setCapability ("clientName", PCLOUDY_USERNAME);
             capabilities.setCapability ("apiKey", PCLOUDY_APIKEY);
             capabilities.setCapability ("email", PCLOUDY_USERNAME);
             capabilities.setCapability ("pCloudy_EnableVideo", "true");
-            capabilities.setCapability ("pCloudy_EnablePerformanceData", "false");
-
+            
             try {
                 LOG.info ("setting up capabilities" + capabilities);
                 LOG.info ("Starting the Driver..");
@@ -97,6 +100,7 @@ public class DriverManager {
             } catch (final MalformedURLException e) {
                 LOG.error ("Error Remote WebDriver...", e);
             }
+            maximizeBrowserWindow ();
             setupBrowserTimeouts ();
 
         } catch (final IOException e) {
