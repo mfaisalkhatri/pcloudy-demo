@@ -5,14 +5,21 @@
       "osName": "Windows",
       "osVersion": "10",
       "browserName": "chrome",
-      "browserVersion": "102"
+      "browserVersion": "109"
     },
   {
     "id": "2",
+    "osName": "Mac",
+    "osVersion": "Ventura",
+    "browserName": "safari",
+    "browserVersion": "16.1"
+  },
+  {
+    "id": "3",
     "osName": "Windows",
     "osVersion": "10",
     "browserName": "firefox",
-    "browserVersion": "105"
+    "browserVersion": "109"
   }
 ]
 }

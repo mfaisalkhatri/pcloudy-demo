@@ -17,7 +17,7 @@ public class BlogsPage {
 
     private WebElement pageTitle () {
         WebDriverWait wait = new WebDriverWait (getDriver (), Duration.ofSeconds (10));
-        return wait.until (ExpectedConditions.visibilityOfElementLocated (By.cssSelector ("div:nth-child(1) > div.col-lg-8 > div > h1")));
+        return wait.until (ExpectedConditions.visibilityOfElementLocated (By.cssSelector ("section.browser_Combination .pl-reads > div.pick_features")));
     }
 
     public String getPageTitle () {

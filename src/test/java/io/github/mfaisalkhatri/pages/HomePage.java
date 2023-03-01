@@ -27,7 +27,7 @@ public class HomePage {
     }
 
     public String getCenterText () {
-        return getDriver ().findElement (By.cssSelector ("div.info.text-center > h2"))
+        return getDriver ().findElement (By.cssSelector (".img-Txt h2"))
             .getText ();
     }
 
@@ -36,7 +36,7 @@ public class HomePage {
     }
 
     private WebElement blogsLink () {
-        return getDriver ().findElement (By.linkText ("Blog"));
+        return getDriver ().findElement (By.cssSelector ("#resource_menu2 > div > div.container > div > div:nth-child(1) > div > a:nth-child(1)"));
 
     }
 
