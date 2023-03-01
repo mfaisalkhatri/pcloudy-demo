@@ -26,8 +26,7 @@ public class PcloudyWebsiteTests extends BaseTest {
     @Test
     public void testHomePageText () {
         takeScreenShot ();
-        assertEquals (homePage.getTopText (), "Continuous Testing Cloud");
-        assertEquals (homePage.getCenterText (), "Deliver Flawless Digital Experience\n" + "through our Device and Browser Cloud");
+        assertEquals (homePage.getCenterText (), "Your Digital Playground\n" + "to Test Apps from Design to Deployment");
     }
 
     @Test

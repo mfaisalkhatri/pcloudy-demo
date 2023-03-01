@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import java.time.Duration;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
@@ -31,8 +29,8 @@ public class DriverManager {
     private static final String                 PCLOUDY_APIKEY   = System.getProperty ("apikey");
 
     @SuppressWarnings ("unchecked")
-    public static <D extends WebDriver> D getDriver () {
-        return (D) DRIVER.get ();
+    public static WebDriver getDriver () {
+        return DRIVER.get ();
     }
 
     public static void quitDriver () {
@@ -93,7 +91,7 @@ public class DriverManager {
             capabilities.setCapability ("apiKey", PCLOUDY_APIKEY);
             capabilities.setCapability ("email", PCLOUDY_USERNAME);
             capabilities.setCapability ("pCloudy_EnableVideo", "true");
-            
+
             try {
                 LOG.info ("setting up capabilities" + capabilities);
                 LOG.info ("Starting the Driver..");

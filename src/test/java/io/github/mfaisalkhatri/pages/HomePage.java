@@ -27,7 +27,7 @@ public class HomePage {
     }
 
     public String getCenterText () {
-        return getDriver ().findElement (By.cssSelector ("div.info.text-center > h2"))
+        return getDriver ().findElement (By.cssSelector (".img-Txt h2"))
             .getText ();
     }
 

@@ -12,16 +12,16 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.java.version>4.5.3</selenium.java.version>
-        <testng.version>7.6.1</testng.version>
-        <log4jcore.version>2.19.0</log4jcore.version>
-        <log4japi.version>2.19.0</log4japi.version>
+        <selenium.java.version>4.8.1</selenium.java.version>
+        <testng.version>7.7.1</testng.version>
+        <log4jcore.version>2.20.0</log4jcore.version>
+        <log4japi.version>2.20.0</log4japi.version>
         <commons.io.version>2.11.0</commons.io.version>
-        <maven.compiler.version>3.10.1</maven.compiler.version>
-        <surefire-version>3.0.0-M7</surefire-version>
+        <maven.compiler.version>3.11.0</maven.compiler.version>
+        <surefire-version>3.0.0-M9</surefire-version>
         <java.release.version>11</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
-        <jackson-databind-version>2.13.3</jackson-databind-version>
+        <jackson-databind-version>2.14.2</jackson-databind-version>
         <suite-xml>test-suite/testng.xml</suite-xml>
         <argLine>-Dfile.encoding=UTF-8 -Xdebug -Xnoagent</argLine>
     </properties>
