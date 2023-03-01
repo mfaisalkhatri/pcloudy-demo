@@ -9,17 +9,17 @@
     },
   {
     "id": "2",
-    "osName": "Windows",
-    "osVersion": "10",
-    "browserName": "firefox",
-    "browserVersion": "109"
-  },
-  {
-    "id": "3",
     "osName": "Mac",
     "osVersion": "Ventura",
     "browserName": "safari",
     "browserVersion": "16.1"
+  },
+  {
+    "id": "3",
+    "osName": "Windows",
+    "osVersion": "10",
+    "browserName": "firefox",
+    "browserVersion": "109"
   }
 ]
 }
