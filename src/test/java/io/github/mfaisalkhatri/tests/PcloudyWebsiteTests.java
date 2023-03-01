@@ -33,6 +33,6 @@ public class PcloudyWebsiteTests extends BaseTest {
     public void testBlogPageText () {
         BlogsPage blogsPage = homePage.openBlogsPage ();
         takeScreenShot ();
-        assertEquals (blogsPage.getPageTitle (), "pCloudy Blogs");
+        assertEquals (blogsPage.getPageTitle (), "Trending Reads");
     }
 }
