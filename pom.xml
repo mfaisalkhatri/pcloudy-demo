@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -12,61 +12,52 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.java.version>4.8.1</selenium.java.version>
-        <testng.version>7.7.1</testng.version>
-        <log4jcore.version>2.20.0</log4jcore.version>
-        <log4japi.version>2.20.0</log4japi.version>
-        <commons.io.version>2.11.0</commons.io.version>
-        <maven.compiler.version>3.11.0</maven.compiler.version>
-        <surefire-version>3.0.0-M9</surefire-version>
-        <java.release.version>11</java.release.version>
+        <selenium.java.version>4.34.0</selenium.java.version>
+        <testng.version>7.11.0</testng.version>
+        <log4jcore.version>2.25.1</log4jcore.version>
+        <log4japi.version>2.25.1</log4japi.version>
+        <commons.io.version>2.20.0</commons.io.version>
+        <maven.compiler.version>3.14.0</maven.compiler.version>
+        <surefire-version>3.5.3</surefire-version>
+        <java.release.version>17</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
-        <jackson-databind-version>2.14.2</jackson-databind-version>
+        <jackson-databind-version>2.19.2</jackson-databind-version>
         <suite-xml>test-suite/testng.xml</suite-xml>
         <argLine>-Dfile.encoding=UTF-8 -Xdebug -Xnoagent</argLine>
     </properties>
-
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.java.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4jcore.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4japi.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-databind-version}</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -99,5 +90,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

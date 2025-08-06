@@ -12,18 +12,8 @@ import org.openqa.selenium.interactions.Actions;
  **/
 public class HomePage {
 
-    private WebElement closeBtnOfBottomleftPopUp () {
-        return getDriver ().findElement (By.cssSelector ("div.bottom-left-popup > a"));
-
-    }
-
     public void closeLeftPopup () {
         closeBtnOfBottomleftPopUp ().click ();
-    }
-
-    public String getTopText () {
-        return getDriver ().findElement (By.cssSelector ("div.info.text-center > h1"))
-            .getText ();
     }
 
     public String getCenterText () {
@@ -31,13 +21,9 @@ public class HomePage {
             .getText ();
     }
 
-    private WebElement resourcesMenu () {
-        return getDriver ().findElement (By.linkText ("Resources"));
-    }
-
-    private WebElement blogsLink () {
-        return getDriver ().findElement (By.cssSelector ("#resource_menu2 > div > div.container > div > div:nth-child(1) > div > a:nth-child(1)"));
-
+    public String getTopText () {
+        return getDriver ().findElement (By.cssSelector ("div.info.text-center > h1"))
+            .getText ();
     }
 
     public BlogsPage openBlogsPage () {
@@ -49,5 +35,20 @@ public class HomePage {
             .perform ();
         blogsLink ().click ();
         return new BlogsPage ();
+    }
+
+    private WebElement blogsLink () {
+        return getDriver ().findElement (
+            By.cssSelector ("#resource_menu2 > div > div.container > div > div:nth-child(1) > div > a:nth-child(1)"));
+
+    }
+
+    private WebElement closeBtnOfBottomleftPopUp () {
+        return getDriver ().findElement (By.cssSelector ("div.bottom-left-popup > a"));
+
+    }
+
+    private WebElement resourcesMenu () {
+        return getDriver ().findElement (By.linkText ("Resources"));
     }
 }

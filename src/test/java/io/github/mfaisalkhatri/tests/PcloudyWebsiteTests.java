@@ -16,23 +16,25 @@ import org.testng.annotations.Test;
 public class PcloudyWebsiteTests extends BaseTest {
 
     private HomePage homePage;
-    @BeforeClass
-    public void testSetup () {
-        String website = "https://www.pcloudy.com/";
-        getDriver ().get (website);
-        homePage = new HomePage ();
-    }
-
-    @Test
-    public void testHomePageText () {
-        takeScreenShot ();
-        assertEquals (homePage.getCenterText (), "Your Digital Playground\n" + "to Test Apps from Design to Deployment");
-    }
 
     @Test
     public void testBlogPageText () {
         BlogsPage blogsPage = homePage.openBlogsPage ();
         takeScreenShot ();
         assertEquals (blogsPage.getPageTitle (), "Trending Reads");
+    }
+
+    @Test
+    public void testHomePageText () {
+        takeScreenShot ();
+        assertEquals (homePage.getCenterText (),
+            "Your Digital Playground\n" + "to Test Apps from Design to Deployment");
+    }
+
+    @BeforeClass
+    public void testSetup () {
+        String website = "https://www.pcloudy.com/";
+        getDriver ().get (website);
+        homePage = new HomePage ();
     }
 }

@@ -1,5 +1,3 @@
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-
 ## Don't forget to give a :star: to make the project popular.
 
 ## :question: What is this Repository about?
@@ -33,12 +31,7 @@ Tests.
 
 - Discuss your queries by writing to me @ `mohammadfaisalkhatri@gmail.com`
   OR ping me on any of the social media sites using the below link:
-    - [Linktree][linktree]
+    - [Linktree](https://linktr.ee/faisalkhatri)
 
-## :thought_balloon: Checkout the blogs related to Testing on my [website][] and [medium-account][medium]
+## :thought_balloon: Checkout the blogs related to Software Testing and Test Automation on my [website](https://mfaisalkhatri.github.io) and [Medium Blog]( https://medium.com/@iamfaisalkhatri)
 
-[linktree]: https://linktr.ee/faisalkhatri
-
-[website]: https://mfaisalkhatri.github.io
-
-[medium]: https://medium.com/@iamfaisalkhatri
