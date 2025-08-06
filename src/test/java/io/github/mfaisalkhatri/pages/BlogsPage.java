@@ -15,12 +15,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  **/
 public class BlogsPage {
 
-    private WebElement pageTitle () {
-        WebDriverWait wait = new WebDriverWait (getDriver (), Duration.ofSeconds (10));
-        return wait.until (ExpectedConditions.visibilityOfElementLocated (By.cssSelector ("section.browser_Combination .pl-reads > div.pick_features")));
-    }
-
     public String getPageTitle () {
         return pageTitle ().getText ();
+    }
+
+    private WebElement pageTitle () {
+        WebDriverWait wait = new WebDriverWait (getDriver (), Duration.ofSeconds (10));
+        return wait.until (ExpectedConditions.visibilityOfElementLocated (
+            By.cssSelector ("section.browser_Combination .pl-reads > div.pick_features")));
     }
 }

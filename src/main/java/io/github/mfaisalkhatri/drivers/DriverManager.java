@@ -23,10 +23,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class DriverManager {
 
     private static final ThreadLocal<WebDriver> DRIVER           = new ThreadLocal<> ();
-    private static final Logger                 LOG              = LogManager.getLogger ("DriverManager.class");
     private static final String                 GRID_URL         = "https://prod-browsercloud-in.pcloudy.com/seleniumcloud/wd/hub";
-    private static final String                 PCLOUDY_USERNAME = System.getProperty ("username");
+    private static final Logger                 LOG              = LogManager.getLogger ("DriverManager.class");
     private static final String                 PCLOUDY_APIKEY   = System.getProperty ("apikey");
+    private static final String                 PCLOUDY_USERNAME = System.getProperty ("username");
 
     @SuppressWarnings ("unchecked")
     public static WebDriver getDriver () {
@@ -39,29 +39,6 @@ public class DriverManager {
             getDriver ().quit ();
             DRIVER.remove ();
         }
-    }
-
-    private static void setDriver (final WebDriver driver) {
-        DriverManager.DRIVER.set (driver);
-    }
-
-    private static void setupBrowserTimeouts () {
-        LOG.info ("Setting Browser Timeouts....");
-        getDriver ().manage ()
-            .timeouts ()
-            .implicitlyWait (Duration.ofSeconds (30));
-        getDriver ().manage ()
-            .timeouts ()
-            .pageLoadTimeout (Duration.ofSeconds (30));
-        getDriver ().manage ()
-            .timeouts ()
-            .scriptTimeout (Duration.ofSeconds (30));
-    }
-
-    private static void maximizeBrowserWindow () {
-        getDriver ().manage ()
-            .window ()
-            .maximize ();
     }
 
     public static void startDriver (final String id) {
@@ -105,6 +82,29 @@ public class DriverManager {
         } catch (final IOException e) {
             LOG.error ("Error reading the config json file", e);
         }
+    }
+
+    private static void maximizeBrowserWindow () {
+        getDriver ().manage ()
+            .window ()
+            .maximize ();
+    }
+
+    private static void setDriver (final WebDriver driver) {
+        DriverManager.DRIVER.set (driver);
+    }
+
+    private static void setupBrowserTimeouts () {
+        LOG.info ("Setting Browser Timeouts....");
+        getDriver ().manage ()
+            .timeouts ()
+            .implicitlyWait (Duration.ofSeconds (30));
+        getDriver ().manage ()
+            .timeouts ()
+            .pageLoadTimeout (Duration.ofSeconds (30));
+        getDriver ().manage ()
+            .timeouts ()
+            .scriptTimeout (Duration.ofSeconds (30));
     }
 
     private DriverManager () {

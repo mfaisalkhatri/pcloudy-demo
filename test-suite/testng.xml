@@ -11,7 +11,7 @@
                 </methods>
             </class>
         </classes>
-    </test> <!-- Test -->
+    </test>
     <test name="pCloudy Website tests on Mac Ventura on safari browser version 16">
         <parameter name="id" value="2"/>
         <classes>
@@ -22,7 +22,7 @@
                 </methods>
             </class>
         </classes>
-    </test> <!-- Test -->
+    </test>
     <test name="pCloudy Website tests on windows 10 on firefox browser version 109">
         <parameter name="id" value="3"/>
         <classes>
@@ -33,6 +33,5 @@
                 </methods>
             </class>
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
-
+    </test>
+</suite>
